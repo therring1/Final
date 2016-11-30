@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="test1.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.container{
+display:block;
+    margin:auto;
+	
+}
+.parallax {
+    /* The image used */
+    background-image: url("bi.jpg");
+
+    /* Set a specific height */
+    min-height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<body>
+<ul>
+  <li><a class="active" href="#home">Royalty</a></li>
+  <li><a href="#news">Shopping Cart</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+   <img src="fall.jpg" width="1000px" height="500px">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="sy.jpg" width="1000px" height="500px">
+  </div>
+
+  <div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="mens.jpeg" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<br><br><br>
+
+<div class="parallax"></div>
+<div style="height:1000px">
+<h1> Women </h1>
+<div class="tooltip"><img src="dress2.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Dress: 20.00</span>
+</div>
+<div class="tooltip"><img src="swtr.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Sweatert: 25.00</span>
+</div>
+<div class="tooltip"><img src="jeanswmn.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jeans: 30.00</span>
+</div>
+<div class="tooltip"><img src="shirts.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Shirt: 30.00</span>
+</div>
+<div class="tooltip"><img src="jacket.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jacket:40.00</span>
+</div>
+<div class="tooltip"><img src="mjeans.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jeans:30.00</span>
+</div>
+<br><br><br>
+<div class="parallax"></div>
+<h1> Men </h1>
+<div class="tooltip"><img src="shirts.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Shirt: 30.00</span>
+</div>
+<div class="tooltip"><img src="jacket.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jacket:40.00</span>
+</div>
+<div class="tooltip"><img src="mjeans.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jeans:30.00</span>
+</div>
+<div class="tooltip"><img src="shirts.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Shirt: 30.00</span>
+</div>
+<div class="tooltip"><img src="jacket.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jacket:40.00</span>
+</div>
+<div class="tooltip"><img src="mjeans.jpg" height="300px" width="350px">
+  <span class="tooltiptext">Jeans:30.00</span>
+</div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+<br><br><br><br><br><br>
+<ul id="navigation">
+<li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Admin</button></li>
+</ul>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="avatar.jpeg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Submit</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+</body>
+</html>
+
